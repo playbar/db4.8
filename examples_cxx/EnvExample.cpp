@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <db_cxx.h>
+#include "db_cxx.h"
 
 using std::ostream;
 using std::cout;
