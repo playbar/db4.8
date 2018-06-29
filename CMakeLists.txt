@@ -14,13 +14,75 @@ set(DB_LIB_SRC
         btree/bt_compact.c
         btree/bt_compare.c
         btree/bt_compress.c
+        btree/bt_conv.c
+        btree/bt_curadj.c
+        btree/bt_cursor.c
         btree/bt_delete.c
         btree/bt_method.c
+        btree/bt_open.c
+        btree/bt_put.c
+        btree/bt_rec.c
         btree/bt_recno.c
+        btree/bt_rsearch.c
+        btree/bt_search.c
+        btree/bt_split.c
+        btree/bt_stat.c
+        btree/bt_upgrade.c
+        btree/bt_verify.c
+        btree/btree_auto.c
+        btree/btree_autop.c
+        common/crypto_stub.c
+        common/db_byteorder.c
+        common/db_compint.c
         common/db_err.c
+        common/db_getlong.c
+        common/db_idspace.c
+        common/db_log2.c
+        common/db_shash.c
+        common/dbt.c
+        common/mkpath.c
+        common/openflags.c
         common/os_method.c
+        common/util_arg.c
+        common/util_cache.c
+        common/util_log.c
+        common/util_sig.c
+        common/zerofill.c
+        db/crdel_auto.c
+        db/crdel_autop.c
+        db/crdel_rec.c
         db/db.c
+        db/db_am.c
+        db/db_auto.c
+        db/db_autop.c
+        db/db_cam.c
+        db/db_cds.c
+        db/db_conv.c
+        db/db_dispatch.c
+        db/db_dup.c
+        db/db_iface.c
+        db/db_join.c
+        db/db_meta.c
         db/db_method.c
+        db/db_open.c
+        db/db_overflow.c
+        db/db_ovfl_vrfy.c
+        db/db_pr.c
+        db/db_rec.c
+        db/db_reclaim.c
+        db/db_remove.c
+        db/db_rename.c
+        db/db_ret.c
+        db/db_setid.c
+        db/db_setlsn.c
+        db/db_sort_multiple.c
+        db/db_stati.c
+        db/db_truncate.c
+        db/db_upg.c
+        db/db_upg_opd.c
+        db/db_vrfy.c
+        db/db_vrfy_stub.c
+        db/db_vrfyutil.c
         db/partition.c
         env/env_alloc.c
         env/env_config.c
