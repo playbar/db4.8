@@ -176,10 +176,10 @@
 
 ///* Define to 1 if you have the `memcmp' function. */
 //#define HAVE_MEMCMP 1
-
-/* Define to 1 if you have the `memcpy' function. */
-#define HAVE_MEMCPY 1
-
+//
+///* Define to 1 if you have the `memcpy' function. */
+//#define HAVE_MEMCPY 1
+//
 ///* Define to 1 if you have the `memmove' function. */
 //#define HAVE_MEMMOVE 1
 //

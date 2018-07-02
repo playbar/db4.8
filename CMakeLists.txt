@@ -8,6 +8,32 @@ ADD_DEFINITIONS(-DLEVELDB_PLATFORM_POSIX)
 ADD_DEFINITIONS(-DOS_MACOSX)
 #ADD_DEFINITIONS(-DUSE_DB4)
 
+#set(db_common_lib_src
+#        common/crypto_stub.c
+#        common/db_byteorder.c
+#        common/db_compint.c
+#        common/db_err.c
+#        common/db_getlong.c
+#        common/db_idspace.c
+#        common/db_log2.c
+#        common/db_shash.c
+#        common/dbt.c
+#        common/mkpath.c
+#        common/openflags.c
+#        common/os_method.c
+#        common/util_arg.c
+#        common/util_cache.c
+#        common/util_log.c
+#        common/util_sig.c
+#        common/zerofill.c
+#        )
+#
+#add_library(db_common_lib ${db_common_lib_src})
+#target_include_directories(db_common_lib PRIVATE
+#        ${CMAKE_CURRENT_SOURCE_DIR}/
+#        ${CMAKE_CURRENT_SOURCE_DIR}/include
+#        )
+
 
 # db
 set(DB_LIB_SRC
@@ -247,29 +273,28 @@ set(DB_LIB_SRC
 add_library(db_lib ${DB_LIB_SRC})
 target_include_directories(db_lib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/
-        ${CMAKE_CURRENT_SOURCE_DIR}/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
 # db_cxx
 set(DB_CXX_LIB_SRC
         cxx/cxx_db.cpp
-#        cxx/cxx_dbc.cpp
-#        cxx/cxx_dbt.cpp
-#        cxx/cxx_env.cpp
-#        cxx/cxx_except.cpp
-#        cxx/cxx_lock.cpp
-#        cxx/cxx_logc.cpp
-#        cxx/cxx_mpool.cpp
-#        cxx/cxx_multi.cpp
-#        cxx/cxx_seq.cpp
-#        cxx/cxx_txn.cpp
+        cxx/cxx_dbc.cpp
+        cxx/cxx_dbt.cpp
+        cxx/cxx_env.cpp
+        cxx/cxx_except.cpp
+        cxx/cxx_lock.cpp
+        cxx/cxx_logc.cpp
+        cxx/cxx_mpool.cpp
+        cxx/cxx_multi.cpp
+        cxx/cxx_seq.cpp
+        cxx/cxx_txn.cpp
         )
 
 add_library(db_cxx_lib ${DB_CXX_LIB_SRC})
 target_include_directories(db_cxx_lib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/build_unix
         )
 
 
@@ -282,10 +307,11 @@ set(EXAMPLES_C_SRC
 add_executable(examples_c ${EXAMPLES_C_SRC})
 target_include_directories(examples_c PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/
-        ${CMAKE_CURRENT_SOURCE_DIR}/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 target_link_libraries(examples_c
         db_lib
+#        db_common_lib
         )
 
 ################
@@ -296,10 +322,11 @@ set(EXAMPLES_CXX_SRC
 add_executable(examples_cxx ${EXAMPLES_CXX_SRC})
 target_include_directories(examples_cxx PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/
-        ${CMAKE_CURRENT_SOURCE_DIR}/build_unix
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 target_link_libraries(examples_cxx
         db_cxx_lib
+#        db_common_lib
         )
 
 ################

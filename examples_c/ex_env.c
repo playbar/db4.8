@@ -18,7 +18,7 @@ extern int getopt(int, char * const *, const char *);
 #include <unistd.h>
 #endif
 
-#include "build_unix/db.h"
+#include "include/db.h"
 
 int db_setup __P((const char *, const char *, FILE *, const char *));
 int db_teardown __P((const char *, const char *, FILE *, const char *));
