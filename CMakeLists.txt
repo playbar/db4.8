@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project(ddcode)
+project(db4.8)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14" )
 
@@ -22,6 +22,7 @@ set(DB_LIB_SRC
         btree/bt_open.c
         btree/bt_put.c
         btree/bt_rec.c
+        btree/bt_reclaim.c
         btree/bt_recno.c
         btree/bt_rsearch.c
         btree/bt_search.c
@@ -84,6 +85,12 @@ set(DB_LIB_SRC
         db/db_vrfy_stub.c
         db/db_vrfyutil.c
         db/partition.c
+        dbreg/dbreg.c
+        dbreg/dbreg_auto.c
+        dbreg/dbreg_autop.c
+        dbreg/dbreg_rec.c
+        dbreg/dbreg_stat.c
+        dbreg/dbreg_util.c
         env/env_alloc.c
         env/env_config.c
         env/env_failchk.c
@@ -114,9 +121,10 @@ set(DB_LIB_SRC
         hash/hash_rec.c
         hash/hash_reclaim.c
         hash/hash_stat.c
-        hash/hash_stub.c
         hash/hash_upgrade.c
         hash/hash_verify.c
+        hmac/hmac.c
+        hmac/sha1.c
         lock/lock.c
         lock/lock_deadlock.c
         lock/lock_failchk.c
@@ -152,8 +160,14 @@ set(DB_LIB_SRC
         mp/mp_sync.c
         mp/mp_trickle.c
         mutex/mut_alloc.c
+        mutex/mut_failchk.c
+        mutex/mut_fcntl.c
         mutex/mut_method.c
+        mutex/mut_pthread.c
+        mutex/mut_region.c
         mutex/mut_stat.c
+        mutex/mut_stub.c
+        mutex/mut_tas.c
         os/os_abort.c
         os/os_abs.c
         os/os_addrinfo.c
@@ -165,15 +179,22 @@ set(DB_LIB_SRC
         os/os_dir.c
         os/os_errno.c
         os/os_fid.c
+        os/os_flock.c
         os/os_fsync.c
         os/os_handle.c
+        os/os_getenv.c
         os/os_map.c
+        os/os_mkdir.c
         os/os_open.c
         os/os_pid.c
         os/os_rename.c
+        os/os_root.c
+        os/os_rpath.c
         os/os_rw.c
         os/os_seek.c
+        os/os_stack.c
         os/os_stat.c
+        os/os_tmpdir.c
         os/os_truncate.c
         os/os_uid.c
         os/os_unlink.c
@@ -187,7 +208,6 @@ set(DB_LIB_SRC
         qam/qam_open.c
         qam/qam_rec.c
         qam/qam_stat.c
-        qam/qam_stub.c
         qam/qam_upgrade.c
         qam/qam_verify.c
         rep/rep_auto.c
@@ -198,7 +218,7 @@ set(DB_LIB_SRC
         rep/rep_method.c
         rep/rep_record.c
         rep/rep_region.c
-        rep/rep_stub.c
+        rep/rep_stat.c
         rep/rep_util.c
         rep/rep_verify.c
         repmgr/repmgr_auto.c
@@ -209,7 +229,7 @@ set(DB_LIB_SRC
         repmgr/repmgr_posix.c
         repmgr/repmgr_queue.c
         repmgr/repmgr_sel.c
-        repmgr/repmgr_stub.c
+        repmgr/repmgr_stat.c
         repmgr/repmgr_util.c
         txn/txn.c
         txn/txn_auto.c
