@@ -7,7 +7,6 @@
  */
 
 #include "db_config.h"
-
 #include "db_int.h"
 
 #include "db_cxx.h"

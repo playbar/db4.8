@@ -252,13 +252,23 @@ target_include_directories(db_lib PRIVATE
 
 # db_cxx
 set(DB_CXX_LIB_SRC
-        #db_src/db/db.c
-        cxx/cxx_dbc.cpp
+        cxx/cxx_db.cpp
+#        cxx/cxx_dbc.cpp
+#        cxx/cxx_dbt.cpp
+#        cxx/cxx_env.cpp
+#        cxx/cxx_except.cpp
+#        cxx/cxx_lock.cpp
+#        cxx/cxx_logc.cpp
+#        cxx/cxx_mpool.cpp
+#        cxx/cxx_multi.cpp
+#        cxx/cxx_seq.cpp
+#        cxx/cxx_txn.cpp
         )
 
 add_library(db_cxx_lib ${DB_CXX_LIB_SRC})
 target_include_directories(db_cxx_lib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}/build_unix
         )
 
