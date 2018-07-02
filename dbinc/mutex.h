@@ -14,9 +14,9 @@
 #define	LOAD_ACTUAL_MUTEX_CODE
 #include "dbinc/mutex_int.h"
 
-#ifndef HAVE_SHARED_LATCHES
- #error "Shared latches are required in DB 4.8 and above"
-#endif
+//#ifndef HAVE_SHARED_LATCHES
+// #error "Shared latches are required in DB 4.8 and above"
+//#endif
 #endif
 
 #if defined(__cplusplus)

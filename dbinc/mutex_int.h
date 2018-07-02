@@ -932,8 +932,7 @@ struct __db_mutex_t {			/* Mutex. */
 	MUTEX_FIELDS			/* Opaque thread mutex structures. */
 #endif
 #ifndef HAVE_MUTEX_FCNTL
-#if defined(HAVE_MUTEX_HYBRID) || \
-    (defined(HAVE_SHARED_LATCHES) && !defined(HAVE_MUTEX_PTHREADS))
+#if defined(HAVE_MUTEX_HYBRID) || (defined(HAVE_SHARED_LATCHES) && !defined(HAVE_MUTEX_PTHREADS))
 	/*
 	 * For hybrid and test-and-set shared latches it is a counter:
 	 * 0 means it is free,

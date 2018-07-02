@@ -63,15 +63,20 @@ typedef struct {
 } db_atomic_t;
 #endif
 
-///*
-// * These macro hide the db_atomic_t structure layout and help detect
-// * non-atomic_t actual argument to the atomic_xxx() calls. DB requires
-// * aligned 32-bit reads to be atomic even outside of explicit 'atomic' calls.
-// * These have no memory barriers; the caller must include them when necessary.
-// */
+/*
+ * These macro hide the db_atomic_t structure layout and help detect
+ * non-atomic_t actual argument to the atomic_xxx() calls. DB requires
+ * aligned 32-bit reads to be atomic even outside of explicit 'atomic' calls.
+ * These have no memory barriers; the caller must include them when necessary.
+ */
 //#define	atomic_read(p)		((p)->value)
 //#define	atomic_init(p, val)	((p)->value = (val))
-//
+
+#define	atomic_read(p) 		((p)->value)
+#define	atomic_init_db(p, val) ((p)->value = (val))
+#define	atomic_inc(env, p)	(++(p)->value)
+#define	atomic_dec(env, p)	(--(p)->value)
+
 //#ifdef HAVE_ATOMIC_SUPPORT
 //
 //#if defined(DB_WIN32)

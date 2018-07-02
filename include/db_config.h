@@ -381,7 +381,7 @@
 #define HAVE_SETUID 1
 
 /* Define to 1 to configure Berkeley DB to use read/write latches. */
-#define HAVE_SHARED_LATCHES 1
+//#define HAVE_SHARED_LATCHES 1
 
 /* Define to 1 if shmctl/SHM_LOCK locks down shared memory segments. */
 /* #undef HAVE_SHMCTL_SHM_LOCK */
